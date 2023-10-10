@@ -14,7 +14,7 @@
       <VBox alignment="TOP_CENTER" layoutX="324.0" layoutY="24.0" prefHeight="419.0" prefWidth="800.0" AnchorPane.bottomAnchor="-19.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="League Of Legends Match Data Table View" />
-            <TableView prefHeight="300.0" prefWidth="780.0">
+            <TableView fx:id="tableView" prefHeight="300.0" prefWidth="780.0">
               <columns>
                 <TableColumn fx:id="gameIdColumn" prefWidth="58.0" text="Game Id" />
                 <TableColumn fx:id="durationColumn" prefWidth="71.0" text="Duration" />

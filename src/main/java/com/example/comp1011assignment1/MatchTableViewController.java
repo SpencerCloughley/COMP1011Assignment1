@@ -3,6 +3,8 @@ package com.example.comp1011assignment1;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,9 +40,22 @@ public class MatchTableViewController implements Initializable {
 
     @FXML
     private TableColumn<Match, String> winnerColumn;
+    @FXML
+    private TableView<Match> tableView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        baronColumn.setCellValueFactory(new PropertyValueFactory<>("firstBaron"));
+        dragonColumn.setCellValueFactory(new PropertyValueFactory<>("firstDragon"));
+        durationColumn.setCellValueFactory(new PropertyValueFactory<>("gameDuration"));
+        gameIdColumn.setCellValueFactory(new PropertyValueFactory<>("gameId"));
+        heraldColumn.setCellValueFactory(new PropertyValueFactory<>("firstRiftHerald"));
+        inhibitorColumn.setCellValueFactory(new PropertyValueFactory<>("firstInhibitor"));
+        killColumn.setCellValueFactory(new PropertyValueFactory<>("firstBlood"));
+        seasonColumn.setCellValueFactory(new PropertyValueFactory<>("seasonId"));
+        towerColumn.setCellValueFactory(new PropertyValueFactory<>("firstTower"));
+        winnerColumn.setCellValueFactory(new PropertyValueFactory<>("winner"));
 
+        tableView.getItems().addAll((DBUtility.getMatches()));
     }
 }

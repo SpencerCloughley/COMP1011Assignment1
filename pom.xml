@@ -66,7 +66,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.comp1011assignment1/com.example.comp1011assignment1.HelloApplication
+                                com.example.comp1011assignment1/com.example.comp1011assignment1.Main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
