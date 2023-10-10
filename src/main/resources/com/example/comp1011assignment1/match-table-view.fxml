@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011assignment1.MatchTableViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="324.0" layoutY="24.0" prefHeight="419.0" prefWidth="800.0" AnchorPane.bottomAnchor="-19.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="League Of Legends Match Data Table View" />
+            <TableView prefHeight="300.0" prefWidth="780.0">
+              <columns>
+                <TableColumn fx:id="gameIdColumn" prefWidth="58.0" text="Game Id" />
+                <TableColumn fx:id="durationColumn" prefWidth="71.0" text="Duration" />
+                  <TableColumn fx:id="seasonColumn" prefWidth="57.0" text="Season" />
+                  <TableColumn fx:id="winnerColumn" prefWidth="52.0" text="Winner" />
+                  <TableColumn fx:id="killColumn" prefWidth="72.0" text="First Blood" />
+                  <TableColumn fx:id="towerColumn" prefWidth="71.0" text="First Tower" />
+                  <TableColumn fx:id="inhibitorColumn" prefWidth="77.0" text="First Inhib." />
+                  <TableColumn fx:id="dragonColumn" prefWidth="78.0" text="First Dragon" />
+                  <TableColumn fx:id="baronColumn" prefWidth="71.0" text="First Baron" />
+                  <TableColumn fx:id="heraldColumn" prefWidth="109.0" text="First Rift Herald" />
+              </columns>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TableView>
+            <Button mnemonicParsing="false" text="Change View" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
