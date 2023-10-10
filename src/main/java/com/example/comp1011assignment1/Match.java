@@ -1,12 +1,14 @@
 package com.example.comp1011assignment1;
 
 public class Match {
-    private int gameId,gameDuration,seasonId,winner,firstBlood,firstTower,firstInhibitor,firstDragon,firstBaron,firstRiftHerald;
+    private int gameId,gameDuration,seasonId;
     //gameDuration is the int value of how many seconds into the game, must be at least 3 minutes long, and can go anytime past that
     //seasonId must be 1-13 as those are all the seasons of the game as of 2023(all the seasonId in this data is 9)
     //winner is either 1 or 2, team 1 or team 2, which correspond to blue team and red team respectively
     //firstBlood,firstTower,firstInhibitor,firstDragon,firstBaron,firstRiftHerald is 1,2 or 0, 1 or 2 for either team and 0 if it did not occur during the game
     // if the other team surrenders you can win a game without kills, towers etc, but each match must have a winner
+    private String winner,firstBlood,firstTower,firstInhibitor,firstDragon,firstBaron,firstRiftHerald;
+    //translate all the numbers in these categories to strings when moving from db to program
 
     public Match(int gameId, int gameDuration, int seasonId, int winner, int firstBlood, int firstTower, int firstInhibitor, int firstDragon, int firstBaron, int firstRiftHerald) {
         setGameId(gameId);
@@ -77,7 +79,7 @@ public class Match {
     /**
      * @return returns which team won the game, 1 for blue side and 2 for red side
      */
-    public int getWinner() {
+    public String getWinner() {
         return winner;
     }
 
@@ -86,15 +88,17 @@ public class Match {
      *               must be either 1 or 2
      */
     public void setWinner(int winner) {
-        if(winner==1 || winner==2)
-            this.winner = winner;
+        if(winner==1)
+            this.winner = "Blue";
+        else if (winner==2)
+            this.winner="Red";
         else throw new IllegalArgumentException(winner + " is invalid, must be either 1 or 2 for blue and red respectively");
     }
 
     /**
      * @return returns the team which got the first kill in the game as 1 for blue, 2 for red, or 0 if did not occur
      */
-    public int getFirstBlood() {
+    public String getFirstBlood() {
         return firstBlood;
     }
 
@@ -103,15 +107,19 @@ public class Match {
      *                   must be either 1 or 2 for teams or 0 for no kill recorded
      */
     public void setFirstBlood(int firstBlood) {
-        if(firstBlood==1 || firstBlood==2 || firstBlood==0)
-            this.firstBlood = firstBlood;
-        else throw new IllegalArgumentException(firstBlood + " is invalid, must be either 1 or 2 for either team or 0 for no kills recorded");
+        if(firstBlood==1)
+            this.firstBlood = "Blue";
+        else if (firstBlood==2)
+            this.firstBlood="Red";
+        else if (firstBlood==0)
+            this.firstBlood="N/A";
+         else throw new IllegalArgumentException(firstBlood + " is invalid, must be either 1 or 2 for either team or 0 for no kills recorded");
     }
 
     /**
      * @return returns the team which got the first tower in the game as 1 for blue, 2 for red, or 0 if did not occur
      */
-    public int getFirstTower() {
+    public String getFirstTower() {
         return firstTower;
     }
 
@@ -120,15 +128,19 @@ public class Match {
      *                   must be either 1 or 2 for teams or 0 for no tower demolished
      */
     public void setFirstTower(int firstTower) {
-        if(firstTower==1 || firstTower==2 || firstTower==0)
-            this.firstTower = firstTower;
+        if(firstTower==1)
+            this.firstTower = "Blue";
+        else if (firstTower==2)
+            this.firstTower="Red";
+        else if (firstTower==0)
+            this.firstTower="N/A";
         else throw new IllegalArgumentException(firstTower + " is invalid, must be either 1 or 2 for either team or 0 for no towers demolished");
     }
 
     /**
      * @return returns the team which got the first inhibitor in the game as 1 for blue, 2 for red, or 0 if did not occur
      */
-    public int getFirstInhibitor() {
+    public String getFirstInhibitor() {
         return firstInhibitor;
     }
 
@@ -137,15 +149,19 @@ public class Match {
      *                       must be either 1 or 2 for teams or 0 for no inhibitor demolished
      */
     public void setFirstInhibitor(int firstInhibitor) {
-        if(firstInhibitor==1 || firstInhibitor==2 || firstInhibitor==0)
-            this.firstInhibitor = firstInhibitor;
+        if(firstInhibitor==1)
+            this.firstInhibitor = "Blue";
+        else if (firstInhibitor==2)
+            this.firstInhibitor="Red";
+        else if (firstInhibitor==0)
+            this.firstInhibitor="N/A";
         else throw new IllegalArgumentException(firstInhibitor + " is invalid, must be either 1 or 2 for either team or 0 for no inhibitors demolished");
     }
 
     /**
      * @return returns the team which got the first dragon in the game as 1 for blue, 2 for red, or 0 if did not occur
      */
-    public int getFirstDragon() {
+    public String getFirstDragon() {
         return firstDragon;
     }
 
@@ -158,14 +174,21 @@ public class Match {
         if(firstDragon==1 || firstDragon==2 || firstDragon==0) {
             if (firstDragon != 0 && gameDuration < 300)
                 throw new IllegalArgumentException(firstDragon + " is invalid, dragon cannot be killed before 5 minutes into the game");
-            else this.firstDragon=firstDragon;
+            else {
+                if(firstDragon==1)
+                    this.firstDragon = "Blue";
+                else if (firstDragon==2)
+                    this.firstDragon="Red";
+                else if (firstDragon==0)
+                    this.firstDragon="N/A";
+            }
         }
         else throw new IllegalArgumentException(firstDragon + " is invalid, must be either 1 or 2 for either team or 0 for no dragons killed");
     }
     /**
      * @return returns the team which got the first baron in the game as 1 for blue, 2 for red, or 0 if did not occur
      */
-    public int getFirstBaron() {
+    public String getFirstBaron() {
         return firstBaron;
     }
     /**
@@ -177,14 +200,21 @@ public class Match {
         if(firstBaron==1 || firstBaron==2 || firstBaron==0) {
             if (firstBaron != 0 && gameDuration < 1200)
                 throw new IllegalArgumentException(firstBaron + " is invalid, baron cannot be killed before 20 minutes into the game");
-            else this.firstBaron = firstBaron;
+            else {
+                if(firstBaron==1)
+                    this.firstBaron = "Blue";
+                else if (firstBaron==2)
+                    this.firstBaron="Red";
+                else if (firstBaron==0)
+                    this.firstBaron="N/A";
+            }
         }
         else throw new IllegalArgumentException(firstBaron + " is invalid, must be either 1 or 2 for either team or 0 for no barons killed");
     }
     /**
      * @return returns the team which got the first rift herald in the game as 1 for blue, 2 for red, or 0 if did not occur
      */
-    public int getFirstRiftHerald() {
+    public String getFirstRiftHerald() {
         return firstRiftHerald;
     }
     /**
@@ -196,7 +226,14 @@ public class Match {
         if(firstRiftHerald==1 || firstRiftHerald==2 || firstRiftHerald==0) {
             if (firstRiftHerald != 0 && gameDuration < 480)
                 throw new IllegalArgumentException(firstRiftHerald + " is invalid, rift herald cannot be killed before 8 minutes into the game");
-            else this.firstRiftHerald = firstRiftHerald;
+            else {
+                if(firstRiftHerald==1)
+                    this.firstRiftHerald = "Blue";
+                else if (firstRiftHerald==2)
+                    this.firstRiftHerald="Red";
+                else if (firstRiftHerald==0)
+                    this.firstRiftHerald="N/A";
+            }
         }
         else throw new IllegalArgumentException(firstRiftHerald + " is invalid, must be either 1 or 2 for either team or 0 for no heralds killed");
     }
