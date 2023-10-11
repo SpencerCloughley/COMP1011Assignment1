@@ -46,4 +46,31 @@ public class DBUtility {
         }
         return matches;
     }
+
+    //function to access all records in the database and count how many times each team won
+    public static int[] getWinners(){
+        int blueWins=0;
+        int redWins=0;
+        int[] winners={0,0};
+        String sql = "SELECT winner FROM games";
+        String responseMsg;
+        try(
+                Connection conn = DriverManager.getConnection(connectUrl, user,password);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        ) {
+            while (resultSet.next()){
+                int winner = resultSet.getInt("winner");
+                if(winner==1) blueWins+=1;
+                else redWins+=1;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        winners[0]=blueWins;
+        winners[1]=redWins;
+        return winners;
+    }
 }
