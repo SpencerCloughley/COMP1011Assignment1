@@ -1,11 +1,13 @@
 package com.example.comp1011assignment1;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -43,6 +45,10 @@ public class MatchTableViewController implements Initializable {
     @FXML
     private TableView<Match> tableView;
 
+    @FXML
+    void changeToGraphView(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event, "match-graph-view.fxml" );
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         baronColumn.setCellValueFactory(new PropertyValueFactory<>("firstBaron"));

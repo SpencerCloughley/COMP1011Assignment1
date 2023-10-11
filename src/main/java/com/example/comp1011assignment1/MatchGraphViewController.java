@@ -24,7 +24,7 @@ public class MatchGraphViewController implements Initializable {
 
     @FXML
     void changeToTableView(ActionEvent event) throws IOException {
-        //SceneChanger.changeScenes(event, "match-table-view.fxml" );
+        SceneChanger.changeScenes(event, "match-table-view.fxml" );
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
