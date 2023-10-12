@@ -6,7 +6,8 @@ public class Match {
     //seasonId must be 1-13 as those are all the seasons of the game as of 2023(all the seasonId in this data is 9)
     //winner is either 1 or 2, team 1 or team 2, which correspond to blue team and red team respectively
     //firstBlood,firstTower,firstInhibitor,firstDragon,firstBaron,firstRiftHerald is 1,2 or 0, 1 or 2 for either team and 0 if it did not occur during the game
-    // if the other team surrenders you can win a game without kills, towers etc, but each match must have a winner
+    //if the other team surrenders you can win a game without kills, towers etc., but each match must have a winner
+    //if it did not occur during the game in the tableView it will be marked with N/A
     private String winner,firstBlood,firstTower,firstInhibitor,firstDragon,firstBaron,firstRiftHerald;
     //translate all the numbers in these categories to strings when moving from db to program
 
