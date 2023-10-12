@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011assignment1.MatchTableViewController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011assignment1.MatchTableViewController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="324.0" layoutY="24.0" prefHeight="419.0" prefWidth="800.0" AnchorPane.bottomAnchor="-19.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="League Of Legends Match Data Table View" />
+            <Label id="header" alignment="CENTER" prefHeight="50.0" prefWidth="620.0" text="League Of Legends Match Data Table View" />
             <TableView fx:id="tableView" prefHeight="300.0" prefWidth="780.0">
               <columns>
                 <TableColumn fx:id="gameIdColumn" prefWidth="58.0" text="Game Id" />

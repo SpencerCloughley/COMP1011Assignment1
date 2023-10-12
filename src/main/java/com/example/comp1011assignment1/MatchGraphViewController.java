@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class MatchGraphViewController implements Initializable {
 
     @FXML
-    private BarChart<?, ?> barChart;
+    private BarChart<String, Integer> barChart;
 
     @FXML
     private PieChart pieChart;
@@ -31,5 +31,13 @@ public class MatchGraphViewController implements Initializable {
         int[] winners = DBUtility.getWinners();
         pieChart.getData().add(new PieChart.Data("Blue Wins",winners[0]));
         pieChart.getData().add(new PieChart.Data("Red Wins",winners[1]));
+
+        int[] firstBloods = DBUtility.getFirstBloods();
+        XYChart.Series<String, Integer> firstBloodData = new XYChart.Series<>();
+        firstBloodData.getData().add(new XYChart.Data<>("Blue First Bloods",firstBloods[0]));
+        firstBloodData.getData().add(new XYChart.Data<>("Red First Bloods",firstBloods[1]));
+        firstBloodData.setName("First Bloods");
+
+        barChart.getData().addAll(firstBloodData);
     }
 }

@@ -73,4 +73,31 @@ public class DBUtility {
         winners[1]=redWins;
         return winners;
     }
+
+
+    public static int[] getFirstBloods() {
+        int blueKills=0;
+        int redKills=0;
+        int[] firstBloods={0,0};
+        String sql = "SELECT firstBlood FROM games";
+        String responseMsg;
+        try(
+                Connection conn = DriverManager.getConnection(connectUrl, user,password);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        ) {
+            while (resultSet.next()){
+                int firstBlood = resultSet.getInt("firstBlood");
+                if(firstBlood==1) blueKills+=1;
+                else redKills+=1;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        firstBloods[0]=blueKills;
+        firstBloods[1]=redKills;
+        return firstBloods;
+    }
 }

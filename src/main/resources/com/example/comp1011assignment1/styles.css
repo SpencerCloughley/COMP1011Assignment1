@@ -1,2 +1,31 @@
 .default-color0.chart-pie { -fx-pie-color: #00BFFF; }
 .default-color1.chart-pie { -fx-pie-color: #FF0000; }
+.data0.chart-bar {-fx-bar-fill: #00BFFF;}
+.data1.chart-bar {-fx-bar-fill: #FF0000;}
+
+
+#header {
+    -fx-font-size: 30px;
+}
+#pieChart{
+    -fx-font-size: 15px;
+}
+.root{
+    -fx-background-image: url("imgs/background.jpg");
+    -fx-background-size: cover;
+    -fx-font-fill: black;
+}
+.button{
+    -fx-border-radius: 20pt;
+    -fx-background-radius: 20pt;
+}
+#barChart{
+    -fx-font-size: 15px;
+    -fx-tick-label-fill: black;
+    -fx-background-color: rgba(0,168,355,0.05);
+}
+/* Can not figure out how to target the bar chart axis and make the labels more visible*/
+.axis-label {
+   -fx-text-fill: black;
+   -fx-font-size: 15px;
+}
